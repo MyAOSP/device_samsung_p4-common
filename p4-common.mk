@@ -24,6 +24,9 @@ DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 #PRODUCT_AAPT_PREF_CONFIG := xlarge
 #PRODUCT_AAPT_PREF_CONFIG := 
 
+# Target arch
+TARGET_ARCH := arm
+
 TARGET_BOOTANIMATION_NAME := horizontal-1280x800
 
 PRODUCT_COPY_FILES := \
@@ -90,7 +93,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/audio/asound.conf:system/etc/asound.conf \
-        $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
+        $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
+        $(LOCAL_PATH)/audio/nvaudio_conf.xml:system/etc/nvaudio_conf.xml
         
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -113,7 +117,8 @@ PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/camera/nvcamera.conf:system/etc/nvcamera.conf
+    $(LOCAL_PATH)/camera/nvcamera.conf:system/etc/nvcamera.conf \
+    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 PRODUCT_CHARACTERISTICS := tablet,nosdcard
 
@@ -122,7 +127,8 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory \
-    power.p3
+    power.p3 \
+    libnetcmdiface
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
