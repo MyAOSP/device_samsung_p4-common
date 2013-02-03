@@ -22,7 +22,7 @@ DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 # if the xhdpi doesn't exist.
 #PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xlarge sw600dp sw720dp
 #PRODUCT_AAPT_PREF_CONFIG := xlarge
-#PRODUCT_AAPT_PREF_CONFIG := 
+#PRODUCT_AAPT_PREF_CONFIG :=
 
 # Target arch
 TARGET_ARCH := arm
@@ -48,22 +48,22 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
 
 PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/gps.conf:system/etc/gps.conf
+    $(LOCAL_PATH)/gps.conf:system/etc/gps.conf
 
 # LPM (from TW-UX 3.2)
 PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/lpm/lib/libQmageDecoder.so:system/lib/libQmageDecoder.so \
-     $(LOCAL_PATH)/lpm/bin/lpmkey:system/bin/lpmkey \
-     $(LOCAL_PATH)/lpm/bin/playlpm:system/bin/playlpm \
-     $(LOCAL_PATH)/lpm/media/battery_charging_0.qmg:system/media/battery_charging_0.qmg \
-     $(LOCAL_PATH)/lpm/media/battery_charging_20.qmg:system/media/battery_charging_20.qmg \
-     $(LOCAL_PATH)/lpm/media/battery_charging_40.qmg:system/media/battery_charging_40.qmg \
-     $(LOCAL_PATH)/lpm/media/battery_charging_60.qmg:system/media/battery_charging_60.qmg \
-     $(LOCAL_PATH)/lpm/media/battery_charging_80.qmg:system/media/battery_charging_80.qmg \
-     $(LOCAL_PATH)/lpm/media/battery_charging_100.qmg:system/media/battery_charging_100.qmg \
-     $(LOCAL_PATH)/lpm/media/battery_error.qmg:system/media/battery_error.qmg \
-     $(LOCAL_PATH)/lpm/media/chargingwarning.qmg:system/media/chargingwarning.qmg \
-     $(LOCAL_PATH)/lpm/media/Disconnected.qmg:system/media/Disconnected.qmg
+    $(LOCAL_PATH)/lpm/lib/libQmageDecoder.so:system/lib/libQmageDecoder.so \
+    $(LOCAL_PATH)/lpm/bin/lpmkey:system/bin/lpmkey \
+    $(LOCAL_PATH)/lpm/bin/playlpm:system/bin/playlpm \
+    $(LOCAL_PATH)/lpm/media/battery_charging_0.qmg:system/media/battery_charging_0.qmg \
+    $(LOCAL_PATH)/lpm/media/battery_charging_20.qmg:system/media/battery_charging_20.qmg \
+    $(LOCAL_PATH)/lpm/media/battery_charging_40.qmg:system/media/battery_charging_40.qmg \
+    $(LOCAL_PATH)/lpm/media/battery_charging_60.qmg:system/media/battery_charging_60.qmg \
+    $(LOCAL_PATH)/lpm/media/battery_charging_80.qmg:system/media/battery_charging_80.qmg \
+    $(LOCAL_PATH)/lpm/media/battery_charging_100.qmg:system/media/battery_charging_100.qmg \
+    $(LOCAL_PATH)/lpm/media/battery_error.qmg:system/media/battery_error.qmg \
+    $(LOCAL_PATH)/lpm/media/chargingwarning.qmg:system/media/chargingwarning.qmg \
+    $(LOCAL_PATH)/lpm/media/Disconnected.qmg:system/media/Disconnected.qmg
 
 PRODUCT_PROPERTY_OVERRIDES := \
     wifi.interface=wlan0 \
@@ -78,24 +78,24 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/bcm4330_sta.bin:system/etc/wifi/bcm4330_sta.bin
 
 PRODUCT_PACKAGES += \
-        libinvensense_mpl
+    libinvensense_mpl
 
 # Torch
 PRODUCT_PACKAGES += \
-        Torch
+    Torch
 
 # Audio
 PRODUCT_PACKAGES += \
-        audio.a2dp.default \
-	audio.usb.default \
-        libaudioutils \
-        libtinyalsa
+    audio.a2dp.default \
+    audio.usb.default \
+    libaudioutils \
+    libtinyalsa
 
 PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/audio/asound.conf:system/etc/asound.conf \
-        $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
-        $(LOCAL_PATH)/audio/nvaudio_conf.xml:system/etc/nvaudio_conf.xml
-        
+    $(LOCAL_PATH)/audio/asound.conf:system/etc/asound.conf \
+    $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/audio/nvaudio_conf.xml:system/etc/nvaudio_conf.xml
+
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
@@ -132,19 +132,18 @@ PRODUCT_PACKAGES += \
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
-	make_ext4fs \
-	setup_fs
+    make_ext4fs \
+    setup_fs
 
 DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/overlay
 
 # for bugmailer
 ifneq ($(TARGET_BUILD_VARIANT),user)
-	PRODUCT_PACKAGES += send_bug
-	PRODUCT_COPY_FILES += \
+    PRODUCT_PACKAGES += send_bug
+    PRODUCT_COPY_FILES += \
         system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
         system/extras/bugmailer/send_bug:system/bin/send_bug
 endif
 
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
-
