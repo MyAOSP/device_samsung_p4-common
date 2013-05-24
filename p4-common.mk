@@ -16,13 +16,8 @@
 
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
-# This device is xhdpi.  However the platform doesn't
-# currently contain all of the bitmaps at xhdpi density so
-# we do this little trick to fall back to the hdpi version
-# if the xhdpi doesn't exist.
-#PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xlarge sw600dp sw720dp
-#PRODUCT_AAPT_PREF_CONFIG := xlarge
-#PRODUCT_AAPT_PREF_CONFIG :=
+PRODUCT_AAPT_CONFIG := xlarge mdpi hdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Target arch
 TARGET_ARCH := arm
@@ -68,6 +63,7 @@ PRODUCT_PROPERTY_OVERRIDES := \
     wifi.supplicant_scan_interval=15 \
     media.stagefright.cache-params=6144/-1/30 \
     ro.sf.lcd_density=160
+    debug.hwui.render_dirty_regions=false
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
@@ -129,7 +125,8 @@ PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory \
     power.p3 \
-    libnetcmdiface
+    libnetcmdiface \
+    WiFiDirectDemo
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
