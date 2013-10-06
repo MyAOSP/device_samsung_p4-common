@@ -44,11 +44,11 @@ on boot
 
     class_start default
 
-    # Prefer tar
-    setprop ro.cwm.prefer_tar true
-
     # Repeatable keys
     setprop ro.cwm.enable_key_repeat true
+
+    # Download mode
+    setprop ro.bootloader.mode download
 
 service ueventd /sbin/ueventd
     critical
